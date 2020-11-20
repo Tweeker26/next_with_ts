@@ -1,21 +1,19 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from 'components/Layout'
+import Layout from 'components/Layout'
 import Gallery from 'components/Gallery'
 import Stats from 'components/Stats'
 import Collections from 'components/Collections'
+import Photos from 'components/Photos'
 
 const Home = () => {
   return (
     <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-
       <Stats />
 
       <Collections />
 
       <Gallery />
+
+      <Photos />
     </Layout>
   )
 }

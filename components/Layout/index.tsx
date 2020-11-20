@@ -3,12 +3,13 @@ import User from 'components/User'
 
 import styles from './layout.module.css'
 
-export const siteTitle = 'Unsplash Profile with Nextjs'
+const siteTitle = 'Unsplash Profile with Nextjs'
 
 const Layout = ({ children }) => {
   return (
     <div className={styles.container}>
       <Head>
+        <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={siteTitle} />
         {/* <meta property="og:image" content={img} /> */}
