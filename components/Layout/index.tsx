@@ -3,7 +3,7 @@ import User from 'components/User'
 
 import styles from './layout.module.css'
 
-const siteTitle = 'Unsplash Profile with Nextjs'
+export const siteTitle = 'Unsplash Profile with Nextjs'
 
 const Layout = ({ children }) => {
   return (
