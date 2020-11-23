@@ -1,8 +1,9 @@
 import useSWR from 'swr'
 import fetcher from 'libs/fetcher'
 import Link from 'next/link'
-import styles from './User.module.css'
 import Social from 'components/Social'
+
+import styles from './User.module.css'
 
 const User = () => {
   const { data, error } = useSWR('/api/user', fetcher)
@@ -30,7 +31,7 @@ const User = () => {
 
       {data ? <Social user={data} /> : ''}
 
-      <p>{data ? data.bio : ''}</p>
+      {data?.bio ? <p>{data.bio}</p> : null}
     </header>
   )
 }

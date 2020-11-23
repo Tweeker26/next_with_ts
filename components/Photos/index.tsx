@@ -1,7 +1,8 @@
 import useSWR from 'swr'
 import fetcher from 'libs/fetcher'
-import styles from './Photos.module.css'
 import UImage from 'components/UImage'
+
+import styles from './Photos.module.css'
 
 const Photos = () => {
   const { data, error } = useSWR(
@@ -19,10 +20,20 @@ const Photos = () => {
         Latest photos from different people
       </h2>
       <section className={styles.photos_container}>
-        {data.map(({ id, urls, alt_description, description }) => (
+        {data.map(({
+          id,
+          urls,
+          user,
+          alt_description,
+          description,
+          width,
+          height,
+        }) => (
           <UImage
             id={id}
             urls={urls}
+            user={user}
+            orientation={width > height ? 'horizontal' : 'vertical'}
             altDescription={alt_description ? alt_description : description}
             key={`${id}_uimage_component`}
           />

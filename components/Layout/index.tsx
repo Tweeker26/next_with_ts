@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import User from 'components/User'
 
@@ -5,7 +6,11 @@ import styles from './layout.module.css'
 
 export const siteTitle = 'Unsplash Profile with Nextjs'
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: JSX.Element[];
+}
+
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.container}>
       <Head>

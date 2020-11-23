@@ -1,23 +1,86 @@
+.vertical {
+  grid-row: span 2;
+}
+
+.vertical, .horizontal {
+  position: relative;
+  overflow: hidden;
+}
+
+.horizontal:hover .actions a,
+.vertical:hover .actions a,
+.horizontal:hover .user a,
+.vertical:hover .user a {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.horizontal::before,
+.vertical::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, #fff 0%, transparent 100%);
+  transition: top .3s linear;
+}
+
+.horizontal:hover::before,
+.vertical:hover::before {
+  top: 0;
+}
+
 .img {
-    display: inline-block;
-    width: 100%;
-    margin: 5px 0;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
 }
 
 .actions {
-    position: relative;
-    bottom: 55px;
-    right: 10px;
-    width: 100%;
-    height: 0;
-    text-align: right;
-    float: left;
+  position: relative;
+  bottom: 55px;
+  right: 10px;
+  width: 100%;
+  height: 0;
+  text-align: right;
+  float: left;
 }
 
 .actions a {
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
-    float: right;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  float: right;
+  transform: translateY(50px);
+}
+
+.user {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 100%;
+  height: 0;
+}
+
+.user a {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  transform: translateY(-50px);
+}
+
+.user a:hover img {
+  transform: scale(1.1);
+}
+
+.user_img {
+  border-radius: 50%;
+}
+
+.actions a, .user a {
+  opacity: 0;
+  transition: transform .3s linear, opacity .3s linear;
 }
