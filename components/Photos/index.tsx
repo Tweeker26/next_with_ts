@@ -34,7 +34,7 @@ const Photos = () => {
             urls={urls}
             user={user}
             orientation={width > height ? 'horizontal' : 'vertical'}
-            altDescription={alt_description ? alt_description : description}
+            altDescription={alt_description || description || user.username}
             key={`${id}_uimage_component`}
           />
         ))}
