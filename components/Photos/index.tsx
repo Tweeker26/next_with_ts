@@ -1,34 +1,21 @@
-import useSWR from 'swr'
-import fetcher from 'libs/fetcher'
-import UImage from 'components/UImage'
+import useSWR from 'swr';
+import fetcher from 'libs/fetcher';
+import UImage from 'components/UImage';
 
-import styles from './Photos.module.css'
+import styles from './Photos.module.css';
 
 const Photos = () => {
-  const { data, error } = useSWR(
-    '/api/photo/allPhotos',
-    fetcher
-  )
+  const { data, error } = useSWR('/api/photo/allPhotos', fetcher);
 
-  if (error) return <div>failed to load</div>
+  if (error) return <div>failed to load</div>;
 
-  if (!data) return <div>loading...</div>
+  if (!data) return <div>loading...</div>;
 
   return (
     <>
-      <h2>
-        Latest photos from different people
-      </h2>
+      <h2>Latest photos from different people</h2>
       <section className={styles.photos_container}>
-        {data.map(({
-          id,
-          urls,
-          user,
-          alt_description,
-          description,
-          width,
-          height,
-        }) => (
+        {data.map(({ id, urls, user, alt_description, description, width, height }) => (
           <UImage
             id={id}
             urls={urls}
@@ -40,7 +27,7 @@ const Photos = () => {
         ))}
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Photos
+export default Photos;

@@ -1,14 +1,14 @@
-import useSWR from 'swr'
-import fetcher from 'libs/fetcher'
-import Link from 'next/link'
-import Social from 'components/Social'
+import useSWR from 'swr';
+import Link from 'next/link';
+import fetcher from 'libs/fetcher';
+import Social from 'components/Social';
 
-import styles from './User.module.css'
+import styles from './User.module.css';
 
 const User = () => {
-  const { data, error } = useSWR('/api/user', fetcher)
+  const { data, error } = useSWR('/api/user', fetcher);
 
-  if (error) return <div>failed to load</div>
+  if (error) return <div>failed to load</div>;
 
   return (
     <header className={styles.header}>
@@ -33,7 +33,7 @@ const User = () => {
 
       {data?.bio ? <p>{data.bio}</p> : null}
     </header>
-  )
-}
+  );
+};
 
-export default User
+export default User;
