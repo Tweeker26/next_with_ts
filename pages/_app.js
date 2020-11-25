@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { siteTitle } from './_document';
 
+import 'antd/dist/antd.min.css';
 import 'styles/globals.css';
 
 export default function App({ Component, pageProps }) {
