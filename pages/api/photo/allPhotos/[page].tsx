@@ -2,11 +2,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Unsplash, { toJson } from 'unsplash-js';
 
 export default function getAllPhotos(req: NextApiRequest, res: NextApiResponse) {
+  const {
+    query: { page },
+  } = req;
+
   return new Promise((resolve) => {
     const u = new Unsplash({ accessKey: process.env.UNSPLASH_ACCESS_KEY });
 
     u.photos
-      .listPhotos(1, 20, 'latest')
+      .listPhotos(parseInt(page.toString()), 20, 'latest')
       .then(toJson)
       .then((json: string) => {
         res.statusCode = 200;

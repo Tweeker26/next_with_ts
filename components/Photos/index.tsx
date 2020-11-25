@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import useSWR from 'swr';
 import fetcher from 'libs/fetcher';
 import UImage from 'components/UImage';
+import Pagination from 'components/Pagination';
 
 import styles from './Photos.module.css';
 
 const Photos = () => {
-  const { data, error } = useSWR('/api/photo/allPhotos', fetcher);
+  const [page, setPage] = useState(1);
+  const { data, error } = useSWR(`/api/photo/allPhotos/${page}`, fetcher);
 
   if (error) return <div>failed to load</div>;
 
@@ -26,6 +29,12 @@ const Photos = () => {
           />
         ))}
       </section>
+      <Pagination
+        activePage={page}
+        handleChangePage={setPage}
+        handlePrevButton={() => setPage(page - 1)}
+        handleNextButton={() => setPage(page + 1)}
+      />
     </>
   );
 };
