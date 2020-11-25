@@ -5,6 +5,7 @@
 .vertical, .horizontal {
   position: relative;
   overflow: hidden;
+  height: fit-content;
 }
 
 .horizontal:hover .actions a,
@@ -33,7 +34,6 @@
 }
 
 .img {
-  display: inline-block;
   width: 100%;
   height: auto;
   margin: 0;
