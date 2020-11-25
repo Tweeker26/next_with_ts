@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>{siteTitle}</title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
       <Component {...pageProps} />

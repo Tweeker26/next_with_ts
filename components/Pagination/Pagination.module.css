@@ -40,7 +40,7 @@
 }
 
 .paginationLink, .paginationLink:hover, .paginationLink:focus {
-  color: #999999;
+  color: #000000;
 }
 
 .paginationLink:hover, .paginationLink:focus {
@@ -54,8 +54,8 @@
 }
 
 .active, .active:hover, .active:focus {
-  background-color: #00acc1;
-  border-color: #00acc1;
+  background-color: #0037c1;
+  border-color: #0037c1;
   color: #FFFFFF;
 }
 
@@ -65,9 +65,9 @@
 }
 
 .paginationLink[disabled], .paginationLink[disabled]:hover, .paginationLink[disabled]:focus {
-  color: #777;
   cursor: not-allowed;
   background-color: #fff;
   border-color: #ddd;
+  opacity: .7;
 }
 
