@@ -1,5 +1,4 @@
 import React from 'react';
-import User from 'components/User';
 import Navigation from 'components/Navigation';
 
 import styles from './layout.module.css';
@@ -12,7 +11,6 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.container}>
       <Navigation />
-      <User />
 
       <main>{children}</main>
     </div>

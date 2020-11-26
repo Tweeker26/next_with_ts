@@ -29,12 +29,7 @@ const Photos = () => {
           />
         ))}
       </section>
-      <Pagination
-        activePage={page}
-        handleChangePage={setPage}
-        handlePrevButton={() => setPage(page - 1)}
-        handleNextButton={() => setPage(page + 1)}
-      />
+      <Pagination activePage={page} handleChangePage={setPage} />
     </>
   );
 };

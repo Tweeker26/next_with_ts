@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pagination as DefaultPagination } from 'antd';
 
 import styles from './Pagination.module.css';
 
@@ -6,18 +7,16 @@ interface PaginationProps {
   pagesCount?: number;
   activePage: number;
   handleChangePage: (number) => void;
-  handlePrevButton: () => void;
-  handleNextButton: () => void;
   pagesOffset?: number;
+  pageSize?: number;
 }
 
 const Pagination = ({
   pagesCount = 20,
   activePage,
   handleChangePage,
-  handlePrevButton,
-  handleNextButton,
   pagesOffset = 3,
+  pageSize = 20,
 }: PaginationProps) => {
   const pages = [];
 
@@ -33,33 +32,14 @@ const Pagination = ({
 
   return (
     <div className={styles.wrapper}>
-      <ul className={styles.pagination}>
-        <li className={styles.paginationItem}>
-          <button onClick={handlePrevButton} className={styles.paginationLink} disabled={activePage === 1}>
-            Prev
-          </button>
-        </li>
-
-        {pages.map((page: number | string, index) => {
-          return (
-            <li className={styles.paginationItem} key={index}>
-              <button
-                onClick={() => handleChangePage(page)}
-                className={`${styles.paginationLink} ${activePage === page ? styles.active : ''}`}
-                disabled={page === '...'}
-              >
-                {page}
-              </button>
-            </li>
-          );
-        })}
-
-        <li className={styles.paginationItem}>
-          <button onClick={handleNextButton} className={styles.paginationLink} disabled={activePage === pagesCount}>
-            Next
-          </button>
-        </li>
-      </ul>
+      <DefaultPagination
+        defaultCurrent={activePage}
+        total={pagesCount * pageSize}
+        pageSize={pageSize}
+        onChange={handleChangePage}
+        showSizeChanger={false}
+        className={styles.pagination}
+      />
     </div>
   );
 };
