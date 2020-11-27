@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Layout from 'components/Layout';
 import Gallery from 'components/Gallery';
 import Collections from 'components/Collections';
-import { siteTitle } from '../_document';
+import { siteTitle } from '../_app';
 
 const Collection = () => {
   const router = useRouter();
